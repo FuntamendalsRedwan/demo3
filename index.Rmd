@@ -1,16 +1,18 @@
 ---
 title: "Week 3 HW - Redwan Rahman"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 Links for the files and load them
 ```{r}
 # github link to "Infant mortality rate.csv"
-linkInfantMortalityRate="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Infant%20mortality%20rate.csv"
+linkInfantMortalityRate="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Original%20data/Infant%20mortality%20rate.csv"
 # github link to "Life expectancy at birth.csv"
-linkLifeExpectancyAtBirth="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Life%20expectancy%20at%20birth.csv"
+linkLifeExpectancyAtBirth="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Original%20data/Life%20expectancy%20at%20birth.csv"
 # github link to "Maternal mortality ratio.csv"
-linkMaternalMortalityRatio="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Maternal%20mortality%20ratio.csv"
+linkMaternalMortalityRatio="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Original%20data/Maternal%20mortality%20ratio.csv"
 
 # store the Infant mortality rate into IMR
 dirtyIMR=read.csv(linkInfantMortalityRate)
@@ -67,4 +69,22 @@ cleanMMR <- dirtyMMR %>% select(countryname = slug,
                                   region = ranking) 
 str(cleanMMR) # checking the data types of the columns
 ```
+
+Saving the Data
+
+```{r}
+saveRDS(cleanIMR, file = "cleanIMR.rds") # save cleanIMR as an rds
+write.csv(cleanIMR, file = "cleanIMR.csv", row.names = FALSE)  # save cleanIMR as a csv
+
+saveRDS(cleanLEAB, file = "cleanLEAB.rds") # save cleanLEAB as an rds
+write.csv(cleanLEAB, file = "cleanLEAB.csv", row.names = FALSE)  # save cleanLEAB as a csv
+
+saveRDS(cleanMMR, file = "cleanMMR.rds") # save cleanMMR as an rds
+write.csv(cleanMMR, file = "cleanMMR.csv", row.names = FALSE)  # save cleanMMR as a csv
+
+```
+
+
+
+
 
