@@ -1,0 +1,70 @@
+---
+title: "Week 3 HW - Redwan Rahman"
+output: html_notebook
+---
+
+Links for the files and load them
+```{r}
+# github link to "Infant mortality rate.csv"
+linkInfantMortalityRate="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Infant%20mortality%20rate.csv"
+# github link to "Life expectancy at birth.csv"
+linkLifeExpectancyAtBirth="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Life%20expectancy%20at%20birth.csv"
+# github link to "Maternal mortality ratio.csv"
+linkMaternalMortalityRatio="https://github.com/FuntamendalsRedwan/demo3/raw/refs/heads/main/Maternal%20mortality%20ratio.csv"
+
+# store the Infant mortality rate into IMR
+dirtyIMR=read.csv(linkInfantMortalityRate)
+# store the Life Expectancy at Birth into LEAB
+dirtyLEAB=read.csv(linkLifeExpectancyAtBirth)
+# store the Matrenal Mortality Ratio into MMR
+dirtyMMR=read.csv(linkMaternalMortalityRatio)
+```
+
+Look at the data to see what we need to keep and data types
+Starting with Infant Mortality Rate (IMR) data clean up
+```{r}
+# we see that one of the column name got split into 2: "deaths.1" and "x000.live.births"
+# and so the last few columns are offset
+str(dirtyIMR) 
+```
+
+```{r}
+#grab only the columns we want to keep from the IMR data
+library(dplyr) # bring in the library
+
+# take the 3 columns we want to keep and change the title to match what we want
+cleanIMR <- dirtyIMR %>% select(countryname = slug, 
+                                deaths.1000.live.births = deaths.1, 
+                                region = ranking) 
+
+str(cleanIMR) # checking the data types of the columns
+```
+
+Now working with the Life Expectancy at Birth (LEAB) data
+```{r}
+str(dirtyLEAB)# the variable here is called "years" and its a num
+```
+```{r}
+# take the 3 columns we want to keep and change the title to match what we want
+cleanLEAB <- dirtyLEAB %>% select(countryname = slug, 
+                                  years = years, 
+                                  region = region) 
+str(cleanLEAB) # checking the data types of the columns
+```
+
+
+Now working with the Maternal Mortality Ratio (MMR) data
+```{r}
+str(dirtyMMR) # the variable here is called "deaths.100" and its an int
+# we see that the data column also got split into 2
+
+```
+
+```{r}
+# take the 3 columns we want to keep and change the title to match what we want
+cleanMMR <- dirtyMMR %>% select(countryname = slug, 
+                                  deaths.100000.live.births = deaths.100, 
+                                  region = ranking) 
+str(cleanMMR) # checking the data types of the columns
+```
+
