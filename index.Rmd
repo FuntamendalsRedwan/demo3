@@ -71,20 +71,32 @@ str(cleanMMR) # checking the data types of the columns
 ```
 
 Saving the Data
-
 ```{r}
-saveRDS(cleanIMR, file = "cleanIMR.rds") # save cleanIMR as an rds
+saveRDS(cleanIMR, file = "cleanIMR.RDS") # save cleanIMR as an rds
 write.csv(cleanIMR, file = "cleanIMR.csv", row.names = FALSE)  # save cleanIMR as a csv
 
-saveRDS(cleanLEAB, file = "cleanLEAB.rds") # save cleanLEAB as an rds
+saveRDS(cleanLEAB, file = "cleanLEAB.RDS") # save cleanLEAB as an rds
 write.csv(cleanLEAB, file = "cleanLEAB.csv", row.names = FALSE)  # save cleanLEAB as a csv
 
-saveRDS(cleanMMR, file = "cleanMMR.rds") # save cleanMMR as an rds
+saveRDS(cleanMMR, file = "cleanMMR.RDS") # save cleanMMR as an rds
 write.csv(cleanMMR, file = "cleanMMR.csv", row.names = FALSE)  # save cleanMMR as a csv
 
 ```
 
 
+Checking the saved data
+```{r}
+str(readRDS("cleanIMR.RDS")) # read the IMR data RDS version
+str(read.csv("cleanIMR.csv"))  # read the IMR data CSV version
+```
+```{r}
+str(readRDS("cleanLEAB.RDS")) # read the LEAB data RDS version
+str(read.csv("cleanLEAB.csv"))  # read the LEAB data CSV version
+```
 
+```{r}
+str(readRDS("cleanMMR.RDS")) # read the MMR data RDS version
+str(read.csv("cleanMMR.csv"))  # read the MMR data CSV version
+```
 
 

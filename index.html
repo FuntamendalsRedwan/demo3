@@ -1710,14 +1710,45 @@ str(cleanMMR) # checking the data types of the columns</code></pre>
 ##  $ deaths.100000.live.births: int  993 748 692 692 628 563 521 518 505 494 ...
 ##  $ region                   : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
 <p>Saving the Data</p>
-<pre class="r"><code>saveRDS(cleanIMR, file = &quot;cleanIMR.rds&quot;) # save cleanIMR as an rds
+<pre class="r"><code>saveRDS(cleanIMR, file = &quot;cleanIMR.RDS&quot;) # save cleanIMR as an rds
 write.csv(cleanIMR, file = &quot;cleanIMR.csv&quot;, row.names = FALSE)  # save cleanIMR as a csv
 
-saveRDS(cleanLEAB, file = &quot;cleanLEAB.rds&quot;) # save cleanLEAB as an rds
+saveRDS(cleanLEAB, file = &quot;cleanLEAB.RDS&quot;) # save cleanLEAB as an rds
 write.csv(cleanLEAB, file = &quot;cleanLEAB.csv&quot;, row.names = FALSE)  # save cleanLEAB as a csv
 
-saveRDS(cleanMMR, file = &quot;cleanMMR.rds&quot;) # save cleanMMR as an rds
+saveRDS(cleanMMR, file = &quot;cleanMMR.RDS&quot;) # save cleanMMR as an rds
 write.csv(cleanMMR, file = &quot;cleanMMR.csv&quot;, row.names = FALSE)  # save cleanMMR as a csv</code></pre>
+<p>Checking the saved data</p>
+<pre class="r"><code>str(readRDS(&quot;cleanIMR.RDS&quot;)) # read the IMR data RDS version</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ countryname            : chr  &quot;afghanistan&quot; &quot;somalia&quot; &quot;central-african-republic&quot; &quot;equatorial-guinea&quot; ...
+##  $ deaths.1000.live.births: num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ region                 : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
+<pre class="r"><code>str(read.csv(&quot;cleanIMR.csv&quot;))  # read the IMR data CSV version</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ countryname            : chr  &quot;afghanistan&quot; &quot;somalia&quot; &quot;central-african-republic&quot; &quot;equatorial-guinea&quot; ...
+##  $ deaths.1000.live.births: num  101.3 83.6 80.5 77.4 71.2 ...
+##  $ region                 : chr  &quot;South Asia&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
+<pre class="r"><code>str(readRDS(&quot;cleanLEAB.RDS&quot;)) # read the LEAB data RDS version</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ countryname: chr  &quot;monaco&quot; &quot;singapore&quot; &quot;macau&quot; &quot;japan&quot; ...
+##  $ years      : num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
+##  $ region     : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
+<pre class="r"><code>str(read.csv(&quot;cleanLEAB.csv&quot;))  # read the LEAB data CSV version</code></pre>
+<pre><code>## &#39;data.frame&#39;:    227 obs. of  3 variables:
+##  $ countryname: chr  &quot;monaco&quot; &quot;singapore&quot; &quot;macau&quot; &quot;japan&quot; ...
+##  $ years      : num  89.8 86.7 85.3 85.2 84.2 84.2 84 84 83.9 83.8 ...
+##  $ region     : chr  &quot;Europe&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; &quot;East and Southeast Asia&quot; ...</code></pre>
+<pre class="r"><code>str(readRDS(&quot;cleanMMR.RDS&quot;)) # read the MMR data RDS version</code></pre>
+<pre><code>## &#39;data.frame&#39;:    196 obs. of  3 variables:
+##  $ countryname              : chr  &quot;nigeria&quot; &quot;chad&quot; &quot;south-sudan&quot; &quot;central-african-republic&quot; ...
+##  $ deaths.100000.live.births: int  993 748 692 692 628 563 521 518 505 494 ...
+##  $ region                   : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
+<pre class="r"><code>str(read.csv(&quot;cleanMMR.csv&quot;))  # read the MMR data CSV version</code></pre>
+<pre><code>## &#39;data.frame&#39;:    196 obs. of  3 variables:
+##  $ countryname              : chr  &quot;nigeria&quot; &quot;chad&quot; &quot;south-sudan&quot; &quot;central-african-republic&quot; ...
+##  $ deaths.100000.live.births: int  993 748 692 692 628 563 521 518 505 494 ...
+##  $ region                   : chr  &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; &quot;Africa&quot; ...</code></pre>
 
 
 
